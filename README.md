@@ -1,8 +1,8 @@
 # Build your own “Ask GiuLLM” — an AI digital twin you can chat with
 
-**GiuLLM** is the little chat button on this site: a *digital twin* of me that answers questions
-about my work, in my own voice. This is a guide to how it works and how you can build your own
-version of it for **any** person, brand or project.
+**GiuLLM** is the little chat button on giuliarinaldo.com: a *digital twin* of me that answers questions
+about my work, in my own voice. This is a guide to how it works and how you can build **your own**
+version of it for any person, brand or project.
 
 It’s deliberately simple: **a plain static website + one small serverless function + a hosted AI model.**
 No framework, no database, no accounts. If you can deploy a website to [Vercel](https://vercel.com),
@@ -17,18 +17,18 @@ you can build this.
             │
             ▼
    ┌──────────────────────┐     is it one of the
-   │  Front-end widget     │──── curated questions? ──► answer instantly from a
-   │  (giullm.js, in the   │        (yes)               local list. No AI call.
-   │   browser)            │
+   │  Front-end widget    │──── curated questions? ──► answer instantly from a
+   │  (giullm.js, in the  │        (yes)               local list. No AI call.
+   │   browser)           │
    └──────────┬───────────┘
               │ (no — anything else)
               ▼
    ┌──────────────────────┐        ┌───────────────────┐
-   │  Serverless function  │──────► │   Groq API         │
-   │  (api/giullm.js)      │  adds  │  (the AI model)    │
-   │  keeps the API key    │ persona└───────────────────┘
-   │  secret, adds the     │ prompt         │
-   │  "who am I" prompt     │◄──────── reply + 3 follow-up
+   │  Serverless function │──────► │   Groq API        │
+   │  (api/giullm.js)     │  adds  │  (the AI model)   │
+   │  keeps the API key   │ persona└───────────────────┘
+   │  secret, adds the    │ prompt           │
+   │  "who am I" prompt   │◄──────── reply + 3 follow-up
    └──────────┬───────────┘          suggestions (JSON)
               ▼
         shown in the chat
@@ -65,7 +65,7 @@ the first person. A good structure:
 
 - **VOICE** — tone, length of replies, quirks (“warm, direct, 2–4 sentences, no emoji”).
 - **ABOUT ME** — bullet points: background, studies, work, values, fun facts.
-- **PROJECTS** — one bullet per project.
+- **PROJECTS** — one bullet per project (in case you're building a portfolio).
 - **CONTACT** — email / socials.
 - **RULES** — “only talk about me and my work; never invent facts; if you don’t know, say so and
   point to my email.” This is what keeps it honest.
@@ -142,7 +142,7 @@ and answer **instantly** — the AI is only the fallback.
 
 ## What it costs
 
-Basically nothing for a portfolio: Groq’s free tier covers normal traffic, Vercel’s Hobby plan hosts
+Basically nothing: Groq’s free tier covers normal traffic, Vercel’s Hobby plan hosts
 the site and the function for free, and the curated answers absorb the most frequent questions before
 they ever reach the AI.
 
